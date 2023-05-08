@@ -9,9 +9,9 @@ $this->title = 'Каталог';
 
     <div class="filter">
     <? $form = ActiveForm::begin(); ?>
-    <?= $form->field($filter, 'color')->checkboxList($colors, ['onchange' => 'this.closest("form").submit()'])->label('Цвет') ?>
-    <?= $form->field($filter, 'size')->checkboxList($sizes, ['onchange' => 'this.closest("form").submit()'])->label('Размер') ?>
-    <a href="javascript:void(0)" onclick="this.closest('form').submit()">Сбросить фильтр</a>
+    <?= $form->field($filter, 'color')->checkboxList($colors)->label('Цвет') ?>
+    <?= $form->field($filter, 'size')->checkboxList($sizes)->label('Размер') ?>
+    <a href="javascript:void(0)" onclick="this.closest('form').submit()">Показать</a>
     <? ActiveForm::end(); ?>
     </div>
 
