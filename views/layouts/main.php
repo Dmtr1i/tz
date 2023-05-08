@@ -38,8 +38,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Каталог', 'url' => ['/site/index']],
-            ['label' => 'О проекте', 'url' => ['/site/about']],
-            ['label' => 'Связь с автором', 'url' => ['/site/contact']]
+            ['label' => 'О проекте', 'url' => ['/site/about']]
         ],
     ]);
     NavBar::end();
@@ -55,13 +54,6 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </main>
-
-<footer class="footer mt-auto py-3 text-muted">
-    <div class="container">
-        <p class="float-left">&copy; Тестовое задание <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>

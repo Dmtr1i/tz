@@ -85,16 +85,32 @@ a.desc:after {
 
 .site-index {
     display: flex;
+    min-height: 90vh;
 }
 
 .filter {
-    height: 90vh;
+    min-height: 100%;
     width: 35%;
     border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .products {
-    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
     width: 65%;
     border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.products > span {
+    padding: 5px;
+}
+
+.site-about {
+    display: flex;
+    flex-direction: column;
 }

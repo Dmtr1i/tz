@@ -17,9 +17,7 @@ $this->title = 'Каталог';
 
     <div class="products">
         <?foreach ($products as $product) {?>
-            <div>
-                <span><?=$product['model_name'] . ' Цвет: ' . $product['color'] . ' Размер: ' . $product['size'] . ' Артикул: ' . $product['code'] . ' Цена: ' . $product['price'] . ' Остаток на складе: ' . $product['count']?></span>
-             </div>
+            <span><?=$product['model_name'] . ' Цвет: ' . $product['color'] . ' Размер: ' . $product['size'] . ' Артикул: ' . $product['code'] . ' Цена: ' . $product['price'] . ' Остаток на складе: ' . $product['count']?></span>
         <?}?>
     </div>    
     
