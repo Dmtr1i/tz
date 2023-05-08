@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\db\Query;
+use app\models\ShoesForm;
 
 class SiteController extends Controller
 {
@@ -61,7 +63,35 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $filter = new ShoesForm();
+        $query = new Query();
+        $product_filter = [];
+        $post = Yii::$app->request->post()['ShoesForm'];
+        if (is_array($post)) {
+            foreach ($post as $key => $value) {
+                if ($value != '') {
+                    $product_filter[$key] = $value;
+                }
+            }
+        }
+        $products = $query->select([])->where($product_filter)->from('products')->all();
+        
+        $query = new Query();
+        $sizes = $query->select(['size'])->from('products')->distinct()->orderBy(['size' => SORT_ASC])->all();
+        $temp = [];
+        foreach ($sizes as $size) {
+            $temp[$size['size']] = $size['size'];
+        }
+        $sizes = $temp;
+        
+        $query = new Query();
+        $colors = $query->select(['color'])->from('products')->distinct()->all();
+        $temp = [];
+        foreach ($colors as $color) {
+            $temp[$color['color']] = $color['color'];
+        }
+        $colors = $temp;
+        return $this->render('index', compact('products', 'sizes', 'colors', 'filter', 'post'));
     }
 
     /**
