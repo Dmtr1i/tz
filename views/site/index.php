@@ -28,8 +28,12 @@ $this->title = 'Каталог';
                 </span>
             </div>
         <?}?>
-        <?foreach ($products as $product) {?>
-            <span><?=$product['model_name'] . ' Цвет: ' . $product['color'] . ' Размер: ' . $product['size'] . ' Артикул: ' . $product['code'] . ' Цена: ' . $product['price'] . ' Остаток на складе: ' . $product['count']?></span>
+        <?if (count($products) > 0) {
+            foreach ($products as $product) {?>
+                <span><?=$product['model_name'] . ' Цвет: ' . $product['color'] . ' Размер: ' . $product['size'] . ' Артикул: ' . $product['code'] . ' Цена: ' . $product['price'] . ' Остаток на складе: ' . $product['count']?></span>
+            <?}
+        } else {?>
+            <span>Предложений, подходящих под ваши требования, не обнаружено</span>
         <?}?>
     </div>    
     
