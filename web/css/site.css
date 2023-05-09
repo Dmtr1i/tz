@@ -114,3 +114,8 @@ a.desc:after {
     display: flex;
     flex-direction: column;
 }
+
+.filter_selected {
+    padding: 15px 0;
+    color: #0ac90a;
+}

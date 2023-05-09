@@ -16,6 +16,18 @@ $this->title = 'Каталог';
     </div>
 
     <div class="products">
+        <?if (isset($post['color']) || isset($post['size'])) {?>
+            <div class="filter_selected">
+                <span>Предложения, подходящие выбранным значениям:
+                    <?if ($post['color'] != '') {
+                        echo ' Цвет: ' . implode(', ', $post['color']) . ';';
+                    }
+                    if ($post['size'] != '') {
+                        echo ' Размер: ' . implode(', ', $post['size']) . ';';
+                    }?>
+                </span>
+            </div>
+        <?}?>
         <?foreach ($products as $product) {?>
             <span><?=$product['model_name'] . ' Цвет: ' . $product['color'] . ' Размер: ' . $product['size'] . ' Артикул: ' . $product['code'] . ' Цена: ' . $product['price'] . ' Остаток на складе: ' . $product['count']?></span>
         <?}?>
